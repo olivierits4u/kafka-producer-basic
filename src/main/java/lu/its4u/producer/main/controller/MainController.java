@@ -22,19 +22,47 @@ public class MainController {
 	@GetMapping(value = { "/" }, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> main(final HttpServletRequest request, @RequestParam("message") String message,
 			@RequestParam("count") int count) {
-		for (int i = 0; i < count; i++) {
-			// Data data=new
-			// Data(System.currentTimeMillis(),"name_"+System.currentTimeMillis(), , msg)
+		try {
+			for (int i = 0; i < count; i++) {
+				// Data data=new
+				// Data(System.currentTimeMillis(),"name_"+System.currentTimeMillis(), , msg)
 
-			Data data = new Data();
-			data.setDate(System.currentTimeMillis());
-			data.setDescription(message);
-			data.setId("" + data.getDate());
-			data.setName("name_" + data.getDate());
-			data.setEnvironment("env");
-			producer.sendMessage(data);
+				Data data = new Data();
+				data.setDate(System.currentTimeMillis());
+				data.setDescription(message);
+				data.setId("" + data.getDate());
+				data.setName("name_" + data.getDate());
+				data.setEnvironment("env");
+				producer.sendMessage(data);
+			}
+			return new ResponseEntity<String>("Sent " + count + " messages correcly", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
-		return new ResponseEntity<String>("Sent " + count + " messages correcly", HttpStatus.OK);
+	}
+
+	@GetMapping(value = { "/e" }, produces = MediaType.APPLICATION_JSON_VALUE)
+
+	public ResponseEntity<String> maine(final HttpServletRequest request  ) {
+		try {
+			for (int i = 0; i < 1; i++) {
+				// Data data=new
+				// Data(System.currentTimeMillis(),"name_"+System.currentTimeMillis(), , msg)
+
+				Data data = new Data();
+				data.setDate(System.currentTimeMillis());
+				data.setDescription("message");
+				data.setId("" + data.getDate());
+				data.setName("name_" + data.getDate());
+				data.setEnvironment("env");
+				producer.sendMessage(data);
+			}
+			return new ResponseEntity<String>("Sent " + 1 + " messages correcly", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }
