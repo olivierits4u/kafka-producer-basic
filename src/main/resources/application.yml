@@ -17,3 +17,17 @@ spring.kafka.properties.ssl.truststore.location: /truststore/truststore.jks
 
 spring.kafka.producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
 spring.kafka.producer.value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+###
+#kafka.topic.name: data-topic
+#kafka.topic.servers: kafka-dev-kafka-bootstrap.kafka-dev:9092
+#server.port: 8080
+#spring.kafka.bootstrap-servers: kafka-dev-kafka-bootstrap.kafka-dev:9092
+#spring.kafka.properties.sasl.mechanism: SCRAM-SHA-512 
+#spring.kafka.properties.security.protocol: SASL_SSL
+#spring.kafka.properties.ssl.truststore.location: /truststore/truststore.jks
+
+#spring.kafka.properties.sasl.jaas.config: org.apache.kafka.common.security.scram.ScramLoginModule required username="producer-dev" password="aaaaa";
+#spring.kafka.properties.ssl.truststore.password: eeee
+#JDK_JAVA_OPTION -Dspring.config.additional-location=file:/config/application.yml,file:/config-secret/application.yml
+###
